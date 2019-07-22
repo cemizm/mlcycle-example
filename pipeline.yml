@@ -10,6 +10,7 @@ steps:
 - name: Train
   docker:
     buildConfiguration:
+        context: train/
         dockerfile: train.dockerfile
     command: python train/train.py
 - name: Validate
