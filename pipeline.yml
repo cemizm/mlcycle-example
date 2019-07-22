@@ -1,7 +1,17 @@
-
 steps:
-  - ingest:
-    name: Ingest
-    docker:
-      image: python:3
-      
+- name: Ingest
+  docker:
+    image: python:3
+    command: python ingest.py
+- name: Prepare
+  docker:
+    image: python:3
+    command: python prepare.py
+- name: Train
+  docker:
+    image: python:3
+    command: python train.py
+- name: Validate
+  docker:
+    image: python:3
+    command: python validate.py
