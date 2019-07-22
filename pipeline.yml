@@ -9,8 +9,9 @@ steps:
     command: python prepare.py
 - name: Train
   docker:
-    image: python:3
-    command: python train.py
+    buildConfiguration:
+        dockerfile: train.dockerfile
+    command: python train/train.py
 - name: Validate
   docker:
     image: python:3
