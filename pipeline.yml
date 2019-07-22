@@ -1,0 +1,7 @@
+
+steps:
+  - ingest:
+    name: Ingest
+    docker:
+      image: python:3
+      
