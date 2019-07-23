@@ -6,6 +6,11 @@ from keras.models import Sequential
 from keras.layers import Dense, Dropout
 from keras.optimizers import RMSprop
 
+import contiflow
+import matplotlib.pyplot as plt
+
+client = contiflow.from_env()
+
 batch_size = 128
 num_classes = 10
 epochs = 20
@@ -44,9 +49,25 @@ history = model.fit(x_train, y_train,
                     epochs=epochs,
                     verbose=1,
                     validation_data=(x_test, y_test))
-score = model.evaluate(x_test, y_test, verbose=0)
 
-print(nonexisting)
+plt.plot(history.history['acc'])
+plt.plot(history.history['val_acc'])
+plt.title('Model accuracy')
+plt.ylabel('Accuracy')
+plt.xlabel('Epoch')
+plt.legend(['Train', 'Test'], loc='upper left')
+plt.savefig('foo.png')
+
+fragment = {
+    'name': 'Model accuracy',
+    'filename': 'model_acc.png',
+    'type': 0
+}
+
+with open('foo.png', 'rb') as f:
+    client.Fragments.uploadEnv(fragment, f)
+
+score = model.evaluate(x_test, y_test, verbose=0)
 
 print('Test loss:', score[0])
 print('Test accuracy:', score[1])
