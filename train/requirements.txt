@@ -7,4 +7,4 @@ h5py
 keras
 matplotlib
 
-mlcycle:0.1.4
+mlcycle==0.1.4
