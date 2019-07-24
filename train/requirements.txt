@@ -7,4 +7,4 @@ h5py
 keras
 matplotlib
 
-git+ssh://git@git01-ifm-min.ad.fh-bielefeld.de/pvserve2/mlcycle/pyclientlib.git#egg=mlcycle
+mlcycle
