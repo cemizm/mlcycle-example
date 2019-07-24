@@ -6,10 +6,10 @@ from keras.models import Sequential
 from keras.layers import Dense, Dropout
 from keras.optimizers import RMSprop
 
-import contiflow
+import mlcycle
 import matplotlib.pyplot as plt
 
-client = contiflow.from_env()
+client = mlcycle.from_env()
 
 batch_size = 128
 num_classes = 10
