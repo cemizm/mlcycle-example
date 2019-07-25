@@ -65,9 +65,13 @@ fragment = {
 }
 
 with open('foo.png', 'rb') as f:
-    client.Fragments.uploadEnv(fragment, f)
+    client.Fragments.upload(fragment, f)
 
 score = model.evaluate(x_test, y_test, verbose=0)
 
-print('Test loss:', score[0])
-print('Test accuracy:', score[1])
+metrics = {
+    'Loss': score[0],
+    'Accuracy': score[1]
+}
+
+client.Jobs.addMetrics(metrics)
