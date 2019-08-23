@@ -1,6 +1,4 @@
-FROM python:3
-
-WORKDIR /app
+FROM cemizm/sci-gpu:tensorflow
 
 COPY requirements.txt requirements.txt
 

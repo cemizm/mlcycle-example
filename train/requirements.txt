@@ -1,10 +1,1 @@
-tensorflow-gpu
-numpy
-scipy
-scikit-learn
-pillow
-h5py
-keras
-matplotlib
-
 mlcycle==0.1.6
